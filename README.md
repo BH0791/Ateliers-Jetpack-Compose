@@ -1,5 +1,10 @@
 # Ateliers-Jetpack-Compose
 ---
+Je vais faire un maximum d'atelier Jetpack Compose dans les moindres détails.
+
+- Principes de base de Jetpack Compose
+- 
+- 
 
 `code`
 

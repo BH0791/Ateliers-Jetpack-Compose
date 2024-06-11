@@ -1,6 +1,7 @@
 package fr.hamtec.basicscodelab.ui.theme
 
 import androidx.compose.material3.Typography
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -34,25 +35,26 @@ val firacode = FontFamily(
     Font(R.font.firacode_bold, FontWeight.Bold),
     Font(R.font.firacode_light, FontWeight.Light)
 )
+
 // Ensemble de styles typographiques
 val MyTypography = Typography(
 
     bodySmall = TextStyle(
-        fontFamily = Lobster_Two,
+        fontFamily = fira_code,
         fontWeight = FontWeight.Medium,
         fontSize = 8.sp,
         lineHeight = 12.sp,
         letterSpacing = 0.5.sp
     ),
     bodyMedium = TextStyle(
-        fontFamily = Lobster_Two,
+        fontFamily = fira_code,
         fontWeight = FontWeight.Medium,
         fontSize = 10.sp,
         lineHeight = 12.sp,
         letterSpacing = 0.5.sp
     ),
     bodyLarge = TextStyle(
-        fontFamily = Lobster_Two,
+        fontFamily = fira_code,
         fontWeight = FontWeight.Normal,
         fontSize = 12.sp,
         lineHeight = 12.sp,
