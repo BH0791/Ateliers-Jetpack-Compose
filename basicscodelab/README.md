@@ -11,7 +11,7 @@
 09. Créer une liste inactive performante
 10. Enregistrer l'état
 11. Animer votre liste
-12. .
+12. Appliquer un style et un thème à votre application (méthode différente)
 13. .
 14. Félicitations
 
