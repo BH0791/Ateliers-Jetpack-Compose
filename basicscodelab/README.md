@@ -12,7 +12,7 @@
 10. Enregistrer l'état
 11. Animer votre liste
 12. Appliquer un style et un thème à votre application (méthode différente)
-13. .
+13. Touches finales
 14. Félicitations
 
-Remarque: Très bien fait ! Un grand merci aux équipes de Google...
+*Remarque: Très bien fait ! Un grand merci aux équipes de Google...*
