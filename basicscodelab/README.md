@@ -9,8 +9,8 @@
 07. Gérer les états dans Compose
 08. Hisser un état
 09. Créer une liste inactive performante
-10. .
-11. .
+10. Enregistrer l'état
+11. Animer votre liste
 12. .
 13. .
 14. Félicitations
