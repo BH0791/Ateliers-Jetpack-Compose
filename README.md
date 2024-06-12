@@ -2,9 +2,8 @@
 ---
 Je vais faire un maximum d'atelier Jetpack Compose dans les moindres détails.
 
-- Principes de base de Jetpack Compose
-- 
-- 
+- Principes de base de Jetpack Compose module **basicscodlab**
+- L'état dans Jetpack Compose
 
 `code`
 
