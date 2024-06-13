@@ -8,8 +8,10 @@ Je vais faire un maximum d'atelier Jetpack Compose dans les moindres détails.
 `code`
 
 
- Jdk  | kotlin  | maven   | Gradle 
-------|---------|---------|--------
- `22` | `2.0.0` | `3.9.7` | `8.8`  
+ Jdk  | kotlin  | maven   | Gradle | androidx.compose | androidx.compose(stable) |
+------|---------|---------|--------|------------------|--------------------------|
+ `22` | `2.0.0` | `3.9.7` | `8.8`  | `1.7.0-beta03`   | `1.6.8`                  |
+
+ *Au 13 juin 2024*
 
   
