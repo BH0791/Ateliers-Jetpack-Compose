@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -21,13 +20,16 @@ fun WaterCounter(
 ) {
     Column(modifier = modifier.padding(16.dp)) {
         var count by remember{ mutableStateOf(0) }
-        Text(
-            text = "You've had ${count} glasses.",
-            modifier = modifier.padding(16.dp)
-        )
+
+        if (count > 0) {
+            // This text is present if the button has been clicked
+            // at least once; absent otherwise
+            Text("You've had $count glasses.")
+        }
         Button(
             onClick = { count++ },
-            Modifier.padding(top = 8.dp)
+            Modifier.padding(top = 8.dp),
+            enabled = count < 10
         ) {
             Text("Add one")
         }
