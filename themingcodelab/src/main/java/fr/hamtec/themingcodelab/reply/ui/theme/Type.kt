@@ -1,4 +1,4 @@
-package fr.hamtec.themingcodelab.ui.theme
+package fr.hamtec.themingcodelab.reply.data.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

@@ -1,4 +1,4 @@
-package fr.hamtec.themingcodelab.ui.theme
+package fr.hamtec.themingcodelab.reply.data.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
