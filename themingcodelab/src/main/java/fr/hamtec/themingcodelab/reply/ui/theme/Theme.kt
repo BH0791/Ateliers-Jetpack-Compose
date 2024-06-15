@@ -13,6 +13,7 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
+import fr.hamtec.themingcodelab.reply.ui.theme.shapes
 
 
 private val LightColors = lightColorScheme(
@@ -105,7 +106,8 @@ fun ReplyTheme(
     MaterialTheme(
         colorScheme = colors,
         content = content,
-        typography = typography
+        typography = typography,
+        shapes = shapes
     )
 }
 
