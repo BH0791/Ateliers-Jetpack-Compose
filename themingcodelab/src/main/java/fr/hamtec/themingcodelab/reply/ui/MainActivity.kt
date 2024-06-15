@@ -7,10 +7,14 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import fr.hamtec.themingcodelab.reply.data.LocalEmailsDataProvider
 import fr.hamtec.themingcodelab.reply.data.ui.theme.ReplyTheme
 import fr.hamtec.themingcodelab.reply.ui.ReplyApp
@@ -25,15 +29,20 @@ class MainActivity : ComponentActivity() {
         setContent {
             ReplyTheme {
                 val uiState by viewModel.uiState.collectAsState()
-                ReplyApp(
-                    replyHomeUIState = uiState,
-                    closeDetailScreen = {
-                        viewModel.closeDetailScreen()
-                    },
-                    navigateToDetail = { emailId ->
-                        viewModel.setSelectedEmail(emailId)
-                    }
-                )
+                Surface(
+                    modifier = Modifier.padding(top = 20.dp),
+                    tonalElevation = 5.dp
+                ) {
+                    ReplyApp(
+                        replyHomeUIState = uiState,
+                        closeDetailScreen = {
+                            viewModel.closeDetailScreen()
+                        },
+                        navigateToDetail = { emailId ->
+                            viewModel.setSelectedEmail(emailId)
+                        }
+                    )
+                }
             }
         }
     }
