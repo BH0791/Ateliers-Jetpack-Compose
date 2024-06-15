@@ -4,3 +4,4 @@
 2. Configuration
 3. Thématisation Material 3
 4. Jeux de couleurs
+5. Ajouter des couleurs dynamiques dans l'application
