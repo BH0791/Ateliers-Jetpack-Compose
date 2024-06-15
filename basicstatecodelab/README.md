@@ -14,8 +14,7 @@
 12. L'état dans ViewModel
 13. Félicitations
 
-Plus de documentation
-
+Plus de documentation<br>
 [Raisonnement dans Compose](https://developer.android.com/develop/ui/compose/mental-model?hl=fr)<br>
 [États et Jetpack Compose](https://developer.android.com/develop/ui/compose/state?hl=fr)<br>
 [Flux de données unidirectionnel dans Jetpack Compose](https://developer.android.com/develop/ui/compose/architecture?hl=fr#udf-compose)<br>

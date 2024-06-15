@@ -8,4 +8,9 @@
 6. Typographie
 7. Formes
 8. Mise en valeur
-9. 
+9. Félicitations
+
+Complément d'informations<br>
+[Guide de thématisation Compose](https://developer.android.com/develop/ui/compose/designsystems?hl=fr)
+
+*Remarque: Toujous bien fait, supper*
