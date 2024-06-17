@@ -2,6 +2,7 @@ package fr.hamtec.animationcodelab.ui.home
 
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.splineBasedDecay
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
@@ -91,7 +92,7 @@ import fr.hamtec.animationcodelab.ui.theme.Amber600
 import fr.hamtec.animationcodelab.ui.theme.AteliersJetpackComposeTheme
 import fr.hamtec.animationcodelab.ui.theme.GreenLight
 import fr.hamtec.animationcodelab.ui.theme.PaleDogwood
-import fr.hamtec.animationcodelab.ui.theme.Seashell
+import fr.hamtec.animationcodelab.ui.theme.Pink80
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -100,9 +101,6 @@ private enum class TabPage {
     Home, Work
 }
 
-/**
- * Shows the entire screen.
- */
 @Composable
 fun Home() {
     // String resources.
@@ -150,11 +148,15 @@ fun Home() {
     val lazyListState = rememberLazyListState()
 
     // The background color. The value is changed by the current tab.
-    // TODO 1: Animate this color change.
-    val backgroundColor = if (tabPage == TabPage.Home) Seashell else GreenLight
+    // TODO 1: Animate this color change. FAIT
+    //    val backgroundColor = if (tabPage == TabPage.Home) Seashell else GreenLight
+    val backgroundColor by animateColorAsState(
+        targetValue = if (tabPage == TabPage.Home) Pink80 else GreenLight,
+        label = "background color")
 
     // The coroutine scope for event handlers calling suspend functions.
     val coroutineScope = rememberCoroutineScope()
+
     Scaffold(
         topBar = {
             HomeTabBar(

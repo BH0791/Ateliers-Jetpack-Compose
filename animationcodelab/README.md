@@ -2,4 +2,6 @@
 
 1. Introduction
 2. Configuration
-3. 
+3. Animer un changement de valeur simple
+
+*Remarque:_*
