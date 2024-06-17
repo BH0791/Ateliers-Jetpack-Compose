@@ -1,4 +1,4 @@
-package fr.hamtec.listederoulante.ui.theme
+package fr.hamtec.affirmations.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

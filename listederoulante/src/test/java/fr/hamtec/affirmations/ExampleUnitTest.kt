@@ -1,4 +1,4 @@
-package fr.hamtec.listederoulante
+package fr.hamtec.affirmations
 
 import org.junit.Test
 
