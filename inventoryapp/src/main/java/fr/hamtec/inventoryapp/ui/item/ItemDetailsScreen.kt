@@ -221,10 +221,11 @@ fun ItemDetailsScreenPreview() {
         ItemDetailsBody(
             ItemDetailsUiState(
                 outOfStock = true,
-                itemDetails = fr.hamtec.inventory.ui.item.ItemDetails(1, "Pen", "$100", "10")
+                itemDetails = ItemDetails(1, "Pen", "$100", "10")
             ),
             onSellItem = {},
             onDelete = {}
         )
     }
 }
+

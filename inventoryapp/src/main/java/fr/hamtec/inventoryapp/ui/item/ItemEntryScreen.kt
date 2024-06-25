@@ -80,7 +80,7 @@ fun ItemEntryBody(
     Column(
         verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_large)),
         modifier = modifier.padding(dimensionResource(id = R.dimen.padding_medium))
-        ) {
+    ) {
         ItemInputForm(
             itemDetails = itemUiState.itemDetails,
             onValueChange = onItemValueChange,
@@ -170,3 +170,4 @@ private fun ItemEntryScreenPreview() {
         ), onItemValueChange = {}, onSaveClick = {})
     }
 }
+

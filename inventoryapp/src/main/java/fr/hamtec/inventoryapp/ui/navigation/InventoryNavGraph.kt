@@ -15,7 +15,6 @@ import fr.hamtec.inventory.ui.item.ItemEntryDestination
 import fr.hamtec.inventory.ui.item.ItemEntryScreen
 import fr.hamtec.inventoryapp.ui.home.HomeDestination
 import fr.hamtec.inventoryapp.ui.home.HomeScreen
-
 /**
  * Provides Navigation graph for the application.
  */
