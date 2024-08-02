@@ -17,6 +17,7 @@ import fr.hamtec.inventoryapp.ui.home.HomeDestination
 import fr.hamtec.inventoryapp.ui.home.HomeScreen
 /**
  * Provides Navigation graph for the application.
+ * Ce fichier est le graphique de navigation pour toute l'application.
  */
 @Composable
 fun InventoryNavHost(
