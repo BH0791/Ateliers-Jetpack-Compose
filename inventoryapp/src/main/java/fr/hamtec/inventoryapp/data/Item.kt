@@ -3,7 +3,6 @@ package fr.hamtec.inventoryapp.data
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-
 /**
  * La classe de données d'entité représente une seule ligne dans la base de données.
  */
@@ -15,3 +14,4 @@ data class Item(
     val price: Double,
     val quantity: Int
 )
+//++ Félicitations !

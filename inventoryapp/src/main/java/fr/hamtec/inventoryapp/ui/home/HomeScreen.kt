@@ -1,5 +1,10 @@
 package fr.hamtec.inventoryapp.ui.home
-
+/**
+ * Ce fichier correspond à l'écran d'accueil, qui est le premier écran de l'application.
+ * Il contient les composables permettant d'afficher la liste d'inventaire. Il dispose d'un
+ * bouton d'action flottant + permettant d'ajouter des articles à cette liste. Vous afficherez
+ * les articles de la liste ultérieurement dans ce parcours.
+ */
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
