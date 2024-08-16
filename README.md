@@ -8,6 +8,7 @@ Je vais faire un maximum d'atelier Jetpack Compose dans les moindres détails.
 - Thématisation dans Compose avec Material 3
 - Animer des éléments dans Jetpack Compose
 - Persistance des données avec Room
+- ...
 
 `code`
 
