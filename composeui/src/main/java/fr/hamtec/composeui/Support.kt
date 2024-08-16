@@ -2,13 +2,19 @@ package fr.hamtec.composeui
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ChevronRight
+import androidx.compose.material.icons.filled.ConnectedTv
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.rounded.People
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -22,6 +28,7 @@ import androidx.compose.ui.semantics.text
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -47,6 +54,47 @@ fun UserBadge(username: String) {
             modifier = Modifier
                 .padding(start = 4.dp)
         )
+    }
+}
+
+@Composable
+fun SimpleButton(modifier: Modifier = Modifier) {
+    Button(
+        modifier = modifier.height(80.dp),
+        onClick = {/*TODO*/ },
+        elevation = ButtonDefaults.buttonElevation(
+            defaultElevation = 5.dp,
+            pressedElevation = 10.dp,
+            focusedElevation = 10.dp
+        ),
+        colors = ButtonDefaults.buttonColors(
+            contentColor = Color(0xFF00FF00),
+        ),
+        contentPadding = PaddingValues(4.dp),
+        shape = MaterialTheme.shapes.extraSmall
+
+    ) {
+
+        Column {
+            Icon(
+                Icons.Default.ConnectedTv,
+                contentDescription = null
+            )
+            Text(
+                text = "Lecture en cours - 90 %",
+                textAlign = TextAlign.Center
+            )
+            Text(
+                text = "TV salon",
+                style = MaterialTheme.typography.titleSmall,
+            )
+        }
+        Icon(
+            Icons.Default.ChevronRight,
+            modifier = Modifier.padding(start = 16.dp),
+            contentDescription = null
+        )
+
     }
 }
 
@@ -131,7 +179,8 @@ fun Rating(
             val formateRate = String.format("%.1f", rate)
             val cdAverageRateIs = AnnotatedString(
                 stringResource(
-                    id = R.string.cd_average_rating_is, formateRate)
+                    id = R.string.cd_average_rating_is, formateRate
+                )
             )
             Text(
                 text = formateRate,
@@ -177,10 +226,19 @@ private fun MessageContentPreview() {
         MessageContent("You like potato and I like potahto", "6:31 pm")
     }
 }
+
 @Preview(showBackground = true)
 @Composable
-fun RatingPreview(){
+fun RatingPreview() {
     AteliersJetpackComposeTheme {
         Rating(4.5, 84)
+    }
+}
+
+@Preview(showBackground = true, group = "Book-Divers")
+@Composable
+private fun SimpleButtonPreview() {
+    AteliersJetpackComposeTheme {
+        SimpleButton()
     }
 }
