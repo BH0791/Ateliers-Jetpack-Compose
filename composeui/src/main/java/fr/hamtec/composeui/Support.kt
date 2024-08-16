@@ -1,9 +1,12 @@
 package fr.hamtec.composeui
 
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -11,11 +14,13 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.filled.ConnectedTv
+import androidx.compose.material.icons.filled.Send
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.rounded.People
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -33,6 +38,56 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import fr.hamtec.composeui.ui.theme.AteliersJetpackComposeTheme
+import java.time.Instant
+
+@Composable
+fun CoversationItem(
+    name: String,
+    message: String,
+    date: Instant,
+    modifier: Modifier = Modifier
+) {
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        modifier = modifier
+            .clickable (onClickLabel = stringResource(R.string.cd_open_conversation)){
+                /*TODO*/
+            }
+            .fillMaxWidth()
+            .padding(horizontal = 8.dp, vertical = 4.dp)
+    ) {
+            MessageContent(message, date.toString().substring(11, 16))
+//        Conversation()
+//        LastMessage(
+//            name = name,
+//            message = message,
+//            date = date,
+//            modifier = Modifier.weight(1f)
+//        )
+    }
+
+}
+
+@Composable
+fun SimpleIconButton(modifier: Modifier = Modifier) {
+    IconButton(
+        {/*TODO*/ }
+    ) {
+        Icon(
+            imageVector = Icons.Default.Send,
+            contentDescription = null,
+            modifier = modifier
+                .size(40.dp)
+                .border(
+                    width = 1.dp,
+                    color = MaterialTheme.colorScheme.primary,
+                    shape = CircleShape
+                )
+                .padding(5.dp)
+        )
+    }
+}
 
 @Composable
 fun UserBadge(username: String) {
@@ -240,5 +295,19 @@ fun RatingPreview() {
 private fun SimpleButtonPreview() {
     AteliersJetpackComposeTheme {
         SimpleButton()
+    }
+}
+
+@Preview(showBackground = true, group = "Book-Divers")
+@Composable
+private fun SimpleIconButtonPreview() {
+    AteliersJetpackComposeTheme { SimpleIconButton() }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun CoversationItemPreview() {
+    AteliersJetpackComposeTheme {
+        CoversationItem("Louise", "Bonjour à tous", Instant.now())
     }
 }
