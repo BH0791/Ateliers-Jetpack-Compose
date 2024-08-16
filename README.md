@@ -14,7 +14,7 @@ Je vais faire un maximum d'atelier Jetpack Compose dans les moindres détails.
 
  Jdk      | kotlin   | maven   | Gradle | androidx.compose | androidx.compose(stable) |
 ----------|----------|---------|--------|------------------|---------------------|
- `22.0.2` | `2.0.10` | `3.9.8` | `8.9`  | `1.7.0-beta07`   | `1.5.15`                  |
+ `22.0.2` | `2.0.10` | `3.9.8` | `8.9`  | `1.7.0-beta07`   | `1.6.8`                  |
 
  *Au 16 juillet 2024*
 
