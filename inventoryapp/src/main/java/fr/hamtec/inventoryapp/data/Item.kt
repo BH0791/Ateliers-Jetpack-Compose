@@ -1,21 +1,17 @@
 package fr.hamtec.inventoryapp.data
 
-import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-
 
 /**
  * La classe de données d'entité représente une seule ligne dans la base de données.
  */
-@Entity(tableName = "item")
+@Entity(tableName = "items")        // *  Par défaut (sans argument pour @Entity), le nom de la table est identique à celui de la classe
 data class Item(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
-    @ColumnInfo(name = "name")
     val name: String,
-    @ColumnInfo(name = "price")
     val price: Double,
-    @ColumnInfo(name = "quantity")
     val quantity: Int
 )
+//++ Félicitations !

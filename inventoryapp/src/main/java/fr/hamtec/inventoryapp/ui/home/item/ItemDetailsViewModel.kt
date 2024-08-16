@@ -24,3 +24,4 @@ data class ItemDetailsUiState(
     val outOfStock: Boolean = true,
     val itemDetails: ItemDetails = ItemDetails()
 )
+
