@@ -24,21 +24,26 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.text
 import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -104,6 +109,7 @@ fun Rating(
         )
     }
 }
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TextFieldWithIcons() {
@@ -117,6 +123,7 @@ fun TextFieldWithIcons() {
         trailingIcon = { Icon(Icons.Filled.Info, contentDescription = "Localized description") }
     )
 }
+
 @Composable
 fun TextFieldWithPrefixAndSuffix() {
     var text by rememberSaveable { mutableStateOf("") }
@@ -131,6 +138,7 @@ fun TextFieldWithPrefixAndSuffix() {
         placeholder = { Text("google") },
     )
 }
+
 @Composable
 fun SimpleButton(modifier: Modifier = Modifier) {
     Button(
@@ -220,13 +228,74 @@ fun TextFieldWithErrorState() {
         }
     )
 }
+
+@Composable
+fun SimpleOutlinedTextFieldSample() {
+    var text by remember { mutableStateOf("") }
+
+    OutlinedTextField(
+        value = text,
+        onValueChange = { text = it },
+        label = { Text("Label") }
+    )
+}
+@Composable
+fun StyledTextField() {
+    var value by remember { mutableStateOf("Hello\nWorld\nInvisible") }
+
+    TextField(
+        value = value,
+        onValueChange = { value = it },
+        label = { Text("Enter text") },
+        maxLines = 2,
+        textStyle = TextStyle(color = Color.Blue, fontWeight = FontWeight.Bold),
+        modifier = Modifier.padding(20.dp)
+    )
+}
+fun rainbowColors(): List<Color> {
+    return listOf(Color.Black, Color.Cyan, Color.Blue, Color.Green, Color.Red /*...*/)
+}
+@Composable
+fun AvecColor() {
+    var text by remember { mutableStateOf("") }
+    val brush = remember {
+        Brush.linearGradient(
+            colors = rainbowColors()
+        )
+    }
+    TextField(
+        value = text, onValueChange = { text = it }, textStyle = TextStyle(brush = brush)
+    )
+}
 @Preview(showBackground = true, group = "Book-Ch_formulaire")
 @Composable
-fun TextFieldWithErrorStatePreview(){
+fun AvecColorPreview(){
+    AteliersJetpackComposeTheme {
+        AvecColor()
+    }
+}
+@Preview(showBackground = true, group = "Book-Ch_formulaire")
+@Composable
+private fun SimpleOutlinedTextFieldSamp() {
+    AteliersJetpackComposeTheme {
+        SimpleOutlinedTextFieldSample()
+    }
+}
+@Preview(showBackground = true, group = "Book-Ch_formulaire")
+@Composable
+fun SimpleOutlinedTextFieldSampPreview() {
     AteliersJetpackComposeTheme {
         TextFieldWithErrorState()
     }
 }
+@Preview(showBackground = true, group = "Book-Ch_formulaire")
+@Composable
+fun TextFieldWithErrorStatePreview() {
+    AteliersJetpackComposeTheme {
+        TextFieldWithErrorState()
+    }
+}
+
 @Preview(showBackground = true, group = "Book-Divers")
 @Composable
 private fun SimpleButtonPreview() {
