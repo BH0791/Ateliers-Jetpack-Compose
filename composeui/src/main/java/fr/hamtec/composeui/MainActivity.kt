@@ -18,8 +18,8 @@ class MainActivity : ComponentActivity() {
             AteliersJetpackComposeTheme() {
                 //++ Affichage du composant
             // UserBadge("Hello hamid")
-                Surface (modifier = Modifier.padding(start = 30.dp, top = 60.dp)) {
-                    SimpleButton()
+                Surface (modifier = Modifier.padding(start = 30.dp, top = 60.dp, end = 30.dp)) {
+                    NewMessageInput({})
                 }
             }
         }

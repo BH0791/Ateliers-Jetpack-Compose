@@ -4,4 +4,7 @@
     <string name="review_count">%s avis</string>
     <string name="cd_average_rating_is">"Note motene de %s"</string>
     <string name="cd_open_conversation">Ouvrir une conversation</string>
+    <string name="cd_type_a_message">Entrer un texte</string>
+    <string name="cd_attach">Joindre un fichier</string>
+    <string name="cd_record">Enregister</string>
 </resources>
