@@ -5,26 +5,37 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.filled.ConnectedTv
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Send
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.text
 import androidx.compose.ui.text.AnnotatedString
@@ -93,7 +104,33 @@ fun Rating(
         )
     }
 }
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun TextFieldWithIcons() {
+    var text by rememberSaveable { mutableStateOf("") }
 
+    TextField(
+        value = text,
+        onValueChange = { text = it },
+        label = { Text("Label") },
+        leadingIcon = { Icon(Icons.Filled.Favorite, contentDescription = "Localized description") },
+        trailingIcon = { Icon(Icons.Filled.Info, contentDescription = "Localized description") }
+    )
+}
+@Composable
+fun TextFieldWithPrefixAndSuffix() {
+    var text by rememberSaveable { mutableStateOf("") }
+
+    TextField(
+        value = text,
+        onValueChange = { text = it },
+        singleLine = true,
+        label = { Text("Label") },
+        prefix = { Text("www.") },
+        suffix = { Text(".com") },
+        placeholder = { Text("google") },
+    )
+}
 @Composable
 fun SimpleButton(modifier: Modifier = Modifier) {
     Button(
@@ -147,6 +184,49 @@ fun SingleText(modifier: Modifier = Modifier) {
         )
     )
 }
+
+@Composable
+fun TextFieldWithErrorState() {
+    val errorMessage = "Text input too long"
+    var text by rememberSaveable { mutableStateOf("") }
+    var isError by rememberSaveable { mutableStateOf(false) }
+    val charLimit = 10
+
+    fun validate(text: String) {
+        isError = text.length > charLimit
+    }
+
+    TextField(
+        value = text,
+        onValueChange = {
+            text = it
+            validate(text)
+        },
+        singleLine = true,
+        label = { Text(if (isError) "Username*" else "Username") },
+        supportingText = {
+            Row {
+                Text(if (isError) errorMessage else "", Modifier.clearAndSetSemantics {})
+                Spacer(Modifier.weight(1f))
+                Text("Limit: ${text.length}/$charLimit")
+            }
+        },
+        isError = isError,
+        keyboardActions = KeyboardActions { validate(text) },
+        modifier =
+        Modifier.semantics {
+            // Provide localized description of the error
+            if (isError) error(errorMessage)
+        }
+    )
+}
+@Preview(showBackground = true, group = "Book-Ch_formulaire")
+@Composable
+fun TextFieldWithErrorStatePreview(){
+    AteliersJetpackComposeTheme {
+        TextFieldWithErrorState()
+    }
+}
 @Preview(showBackground = true, group = "Book-Divers")
 @Composable
 private fun SimpleButtonPreview() {
@@ -175,5 +255,21 @@ private fun SimpleIconButtonPreview() {
 private fun SingleTextPreview() {
     AteliersJetpackComposeTheme {
         SingleText()
+    }
+}
+
+@Preview(showBackground = true, group = "Book-Ch_formulaire")
+@Composable
+fun TextFieldWithPrefixAndSuffixPreview() {
+    AteliersJetpackComposeTheme {
+        TextFieldWithPrefixAndSuffix()
+    }
+}
+
+@Preview(showBackground = true, group = "Book-Ch_formulaire")
+@Composable
+private fun TextFieldWithIconsPreview() {
+    AteliersJetpackComposeTheme {
+        TextFieldWithIcons()
     }
 }
