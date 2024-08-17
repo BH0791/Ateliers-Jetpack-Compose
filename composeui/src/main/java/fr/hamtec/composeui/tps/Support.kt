@@ -1,4 +1,4 @@
-package fr.hamtec.composeui
+package fr.hamtec.composeui.tps
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -37,6 +37,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import fr.hamtec.composeui.R
 import fr.hamtec.composeui.ui.theme.AteliersJetpackComposeTheme
 import java.time.Instant
 

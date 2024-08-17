@@ -1,4 +1,4 @@
-package fr.hamtec.composeui
+package fr.hamtec.composeui.divs
 
 import android.util.Log
 import androidx.compose.foundation.BorderStroke
@@ -58,6 +58,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.ViewModel
+import fr.hamtec.composeui.R
 import fr.hamtec.composeui.ui.theme.AteliersJetpackComposeTheme
 
 /**
