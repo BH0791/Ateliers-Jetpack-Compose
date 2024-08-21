@@ -1,4 +1,4 @@
-package fr.hamtec.trainingcupcake.ui.theme
+package fr.hamtec.cupcake.ui.theme
 
 import android.app.Activity
 import android.os.Build
