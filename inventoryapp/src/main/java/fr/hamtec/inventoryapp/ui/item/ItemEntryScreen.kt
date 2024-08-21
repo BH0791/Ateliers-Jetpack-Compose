@@ -1,5 +1,10 @@
 package fr.hamtec.inventory.ui.item
 
+/**
+ * Cet écran est semblable à ItemEditScreen.kt. Ils comportent tous deux des champs de texte pour les
+ * détails de l'article. Cet écran s'affiche lorsque l'utilisateur appuie sur le bouton d'action flottant
+ * sur l'écran d'accueil. ItemEntryViewModel.kt est le ViewModel correspondant à cet écran.
+ */
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.calculateEndPadding
