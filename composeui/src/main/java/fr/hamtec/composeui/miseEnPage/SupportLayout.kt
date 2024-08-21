@@ -1,0 +1,86 @@
+package fr.hamtec.composeui.miseEnPage
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+
+@Preview(showBackground = true)
+@Composable
+fun LayoutRow(): Unit {
+    Row {
+        // The child with no weight will have the specified size.
+        Box(
+            Modifier
+                .size(40.dp, 80.dp)
+                .background(Color.Magenta)
+        )
+        // Has weight, the child will occupy half of the remaining width.
+        Box(
+            Modifier
+                .height(40.dp)
+                .weight(1f)
+                .background(Color.Yellow)
+        )
+        // Has weight and does not fill, the child will occupy at most half of the remaining width.
+        // Therefore it will occupy 80.dp (its preferred width) if the assigned width is larger.
+        Box(
+            Modifier
+                .size(80.dp, 40.dp)
+                .weight(1f, fill = false)
+                .background(Color.Green)
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun LayoutRow2() {
+    Row(Modifier.fillMaxHeight()) {
+        Box(
+            modifier = Modifier
+                .size(80.dp, 40.dp)
+                .alignBy { it.measuredHeight / 2 }
+                .background(Color.Magenta)
+        )
+        Text(
+            text = "Text 1",
+            fontSize = 40.sp,
+            modifier = Modifier
+                .alignByBaseline()
+                .background(color = Color.Red)
+        )
+        Text(
+            text = "Text 2",
+            modifier = Modifier
+                .alignByBaseline()
+                .background(color = Color.Cyan)
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun LayoutRow3() {
+    Row {
+        Box(Modifier.size(100.dp).background(Color.Red))
+        Spacer(Modifier.width(20.dp))
+        Box(Modifier.size(100.dp).background(Color.Magenta))
+        Spacer(Modifier.weight(1f))
+        Box(Modifier.size(100.dp).background(Color.Black))
+    }
+}
+
+
+
