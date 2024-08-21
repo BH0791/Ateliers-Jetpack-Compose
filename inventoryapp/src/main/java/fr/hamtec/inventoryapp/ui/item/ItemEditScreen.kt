@@ -66,4 +66,3 @@ fun ItemEditScreenPreview() {
         ItemEditScreen(navigateBack = { /*Do nothing*/ }, onNavigateUp = { /*Do nothing*/ })
     }
 }
-
