@@ -1,6 +1,6 @@
 package fr.hamtec.cupcake.data
 
-import com.example.cupcake.R
+import fr.hamtec.trainingcupcake.R
 
 object DataSource {
     val flavors = listOf(

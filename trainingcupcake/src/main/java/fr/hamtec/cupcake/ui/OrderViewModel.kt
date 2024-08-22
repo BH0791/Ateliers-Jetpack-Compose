@@ -1,7 +1,7 @@
 package fr.hamtec.cupcake.ui
 
 import androidx.lifecycle.ViewModel
-import com.example.cupcake.data.OrderUiState
+import fr.hamtec.cupcake.data.OrderUiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
