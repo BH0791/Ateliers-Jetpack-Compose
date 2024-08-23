@@ -39,7 +39,7 @@ import fr.hamtec.cupcake.ui.StartOrderScreen
 import fr.hamtec.trainingcupcake.R
 
 /**
- * enum values that represent the screens in the app
+ * ++ valeurs enum qui représentent les écrans de l'application
  */
 enum class CupcakeScreen(@StringRes val title: Int) {
     Start(title = R.string.app_name),
@@ -81,6 +81,9 @@ fun CupcakeAppBar(
 @Composable
 fun CupcakeApp(
     viewModel: OrderViewModel = viewModel(),
+    /**
+     * navController : instance de la classe NavHostController. Vous pouvez utiliser cet objet pour naviguer entre les écrans, par exemple en appelant la méthode navigate() pour accéder à une autre destination. Vous pouvez obtenir NavHostController en appelant rememberNavController() à partir d'une fonction modulable.
+     */
     navController: NavHostController = rememberNavController()
 ) {
     // Get current back stack entry
@@ -121,17 +124,17 @@ fun CupcakeApp(
                 )
             }
             composable(route = CupcakeScreen.Flavor.name) {
-//                val context = LocalContext.current
-//                SelectOptionScreen(
-//                    subtotal = uiState.price,
-//                    onNextButtonClicked = { navController.navigate(CupcakeScreen.Pickup.name) },
-//                    onCancelButtonClicked = {
-//                        cancelOrderAndNavigateToStart(viewModel, navController)
-//                    },
-//                    options = DataSource.flavors.map { id -> context.resources.getString(id) },
-//                    onSelectionChanged = { viewModel.setFlavor(it) },
-//                    modifier = Modifier.fillMaxHeight()
-//                )
+                val context = LocalContext.current
+                SelectOptionScreen(
+                    subtotal = uiState.price,
+                    onNextButtonClicked = { navController.navigate(CupcakeScreen.Pickup.name) },
+                    onCancelButtonClicked = {
+                        cancelOrderAndNavigateToStart(viewModel, navController)
+                    },
+                    options = DataSource.flavors.map { id -> context.resources.getString(id) },
+                    onSelectionChanged = { viewModel.setFlavor(it) },
+                    modifier = Modifier.fillMaxHeight()
+                )
             }
             composable(route = CupcakeScreen.Pickup.name) {
                 SelectOptionScreen(
