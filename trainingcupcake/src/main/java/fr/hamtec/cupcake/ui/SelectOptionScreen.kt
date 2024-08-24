@@ -28,10 +28,10 @@ import fr.hamtec.trainingcupcake.R
 
 
 /**
- * Composable that displays the list of items as [RadioButton] options,
- * [onSelectionChanged] lambda that notifies the parent composable when a new value is selected,
- * [onCancelButtonClicked] lambda that cancels the order when user clicks cancel and
- * [onNextButtonClicked] lambda that triggers the navigation to next screen
+ * Composable qui affiche la liste des éléments sous forme d'options [RadioButton],
+ * * [onSelectionChanged] lambda qui notifie le composable parent lorsqu'une nouvelle valeur est sélectionnée,
+ * * [onCancelButtonClicked] lambda qui annule la commande lorsque l'utilisateur clique sur annuler et
+ * * [onNextButtonClicked] lambda qui déclenche la navigation vers l'écran suivant.
  */
 @Composable
 fun SelectOptionScreen(

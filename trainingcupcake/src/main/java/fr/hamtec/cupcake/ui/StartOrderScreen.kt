@@ -28,9 +28,9 @@ import fr.hamtec.trainingcupcake.R
 
 
 /**
- * Composable that allows the user to select the desired cupcake quantity and expects
- * [onNextButtonClicked] lambda that expects the selected quantity and triggers the navigation to
- * next screen
+ * Composable qui permet à l'utilisateur de sélectionner la quantité de cupcakes souhaitée et de s'attendre à ce qu'elle le soit.
+ * [onNextButtonClicked] lambda qui attend la quantité sélectionnée et déclenche la navigation vers
+ *   * next screen
  */
 @Composable
 fun StartOrderScreen(

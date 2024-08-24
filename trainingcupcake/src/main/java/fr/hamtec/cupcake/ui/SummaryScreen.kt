@@ -27,9 +27,9 @@ import fr.hamtec.trainingcupcake.R
 
 
 /**
- * This composable expects [orderUiState] that represents the order state, [onCancelButtonClicked]
- * lambda that triggers canceling the order and passes the final order to [onSendButtonClicked]
- * lambda
+ * Ce composable attend [orderUiState] qui représente l'état de la commande, [onCancelButtonClicked]
+ *  * lambda qui déclenche l'annulation de la commande et transmet la commande finale à [onSendButtonClicked]
+ *  * lambda
  */
 @Composable
 fun OrderSummaryScreen(
