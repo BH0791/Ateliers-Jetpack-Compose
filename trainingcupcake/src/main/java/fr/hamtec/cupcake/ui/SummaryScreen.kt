@@ -25,6 +25,7 @@ import fr.hamtec.cupcake.ui.components.FormattedPriceLabel
 import fr.hamtec.cupcake.ui.theme.AteliersJetpackComposeTheme
 import fr.hamtec.trainingcupcake.R
 
+
 /**
  * This composable expects [orderUiState] that represents the order state, [onCancelButtonClicked]
  * lambda that triggers canceling the order and passes the final order to [onSendButtonClicked]
@@ -33,8 +34,6 @@ import fr.hamtec.trainingcupcake.R
 @Composable
 fun OrderSummaryScreen(
     orderUiState: OrderUiState,
-    onCancelButtonClicked: () -> Unit,
-    onSendButtonClicked: (String, String) -> Unit,
     modifier: Modifier = Modifier
 ) {
     val resources = LocalContext.current.resources
@@ -90,13 +89,13 @@ fun OrderSummaryScreen(
             ) {
                 Button(
                     modifier = Modifier.fillMaxWidth(),
-                    onClick = { onSendButtonClicked(newOrder, orderSummary) }
+                    onClick = {}
                 ) {
                     Text(stringResource(R.string.send))
                 }
                 OutlinedButton(
                     modifier = Modifier.fillMaxWidth(),
-                    onClick = onCancelButtonClicked
+                    onClick = {}
                 ) {
                     Text(stringResource(R.string.cancel))
                 }
@@ -105,14 +104,12 @@ fun OrderSummaryScreen(
     }
 }
 
-@Preview(showBackground = true)
+@Preview
 @Composable
 fun OrderSummaryPreview() {
     AteliersJetpackComposeTheme {
         OrderSummaryScreen(
             orderUiState = OrderUiState(0, "Test", "Test", "$300.00"),
-            onSendButtonClicked = { subject: String, summary: String -> },
-            onCancelButtonClicked = {},
             modifier = Modifier.fillMaxHeight()
         )
     }

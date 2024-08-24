@@ -2,6 +2,7 @@ package fr.hamtec.cupcake.data
 
 import fr.hamtec.trainingcupcake.R
 
+
 object DataSource {
     val flavors = listOf(
         R.string.vanilla,

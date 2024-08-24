@@ -1,5 +1,6 @@
 package fr.hamtec.cupcake.data
 
+
 /**
  * Data class that represents the current UI state in terms of [quantity], [flavor],
  * [dateOptions], selected pickup [date] and [price]

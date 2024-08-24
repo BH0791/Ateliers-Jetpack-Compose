@@ -26,6 +26,7 @@ import fr.hamtec.cupcake.ui.components.FormattedPriceLabel
 import fr.hamtec.cupcake.ui.theme.AteliersJetpackComposeTheme
 import fr.hamtec.trainingcupcake.R
 
+
 /**
  * Composable that displays the list of items as [RadioButton] options,
  * [onSelectionChanged] lambda that notifies the parent composable when a new value is selected,
@@ -37,8 +38,6 @@ fun SelectOptionScreen(
     subtotal: String,
     options: List<String>,
     onSelectionChanged: (String) -> Unit = {},
-    onCancelButtonClicked: () -> Unit = {},
-    onNextButtonClicked: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     var selectedValue by rememberSaveable { mutableStateOf("") }
@@ -92,7 +91,7 @@ fun SelectOptionScreen(
         ) {
             OutlinedButton(
                 modifier = Modifier.weight(1f),
-                onClick = onCancelButtonClicked
+                onClick = {}
             ) {
                 Text(stringResource(R.string.cancel))
             }
@@ -100,16 +99,15 @@ fun SelectOptionScreen(
                 modifier = Modifier.weight(1f),
                 // the button is enabled when the user makes a selection
                 enabled = selectedValue.isNotEmpty(),
-                onClick = onNextButtonClicked
+                onClick = {}
             ) {
                 Text(stringResource(R.string.next))
             }
         }
     }
-
 }
 
-@Preview(showBackground = true)
+@Preview
 @Composable
 fun SelectOptionPreview() {
     AteliersJetpackComposeTheme {

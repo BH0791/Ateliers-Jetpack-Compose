@@ -26,6 +26,7 @@ import fr.hamtec.cupcake.data.DataSource
 import fr.hamtec.cupcake.ui.theme.AteliersJetpackComposeTheme
 import fr.hamtec.trainingcupcake.R
 
+
 /**
  * Composable that allows the user to select the desired cupcake quantity and expects
  * [onNextButtonClicked] lambda that expects the selected quantity and triggers the navigation to
@@ -34,7 +35,6 @@ import fr.hamtec.trainingcupcake.R
 @Composable
 fun StartOrderScreen(
     quantityOptions: List<Pair<Int, Int>>,
-    onNextButtonClicked: (Int) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -69,8 +69,7 @@ fun StartOrderScreen(
             quantityOptions.forEach { item ->
                 SelectQuantityButton(
                     labelResourceId = item.first,
-                    onClick = { onNextButtonClicked(item.second) },
-                    modifier = Modifier.fillMaxWidth(),
+                    onClick = {}
                 )
             }
         }
@@ -95,13 +94,12 @@ fun SelectQuantityButton(
     }
 }
 
-@Preview(showBackground = true)
+@Preview
 @Composable
 fun StartOrderPreview() {
     AteliersJetpackComposeTheme {
         StartOrderScreen(
             quantityOptions = DataSource.quantityOptions,
-            onNextButtonClicked = {},
             modifier = Modifier
                 .fillMaxSize()
                 .padding(dimensionResource(R.dimen.padding_medium))
