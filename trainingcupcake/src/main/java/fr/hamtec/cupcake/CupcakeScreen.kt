@@ -97,14 +97,18 @@ fun CupcakeApp(
             composable(route = CupcakeScreen.Start.name) {
                 StartOrderScreen(
                     quantityOptions = DataSource.quantityOptions,
+                    onNextButtonClicked = {
+                        viewModel.setQuantity(it)
+                        navController.navigate(CupcakeScreen.Flavor.name)
+                    },
                     modifier = Modifier
                         .fillMaxSize()
                         .padding(dimensionResource(R.dimen.padding_medium))
                 )
             }
-            composable(route = CupcakeScreen.Flavor.name){
-            /**
-             * Context est une classe abstraite dont l'implémentation est fournie par le système Android. Elle permet l'accès à des ressources et à des classes propres à l'application, ainsi qu'à des appels pour effectuer des opérations au niveau de l'application, comme les activités de lancement par exemple. Vous pouvez utiliser cette variable pour obtenir les chaînes de la liste des ID de ressources du modèle de vue afin d'afficher la liste des saveurs.
+            composable(route = CupcakeScreen.Flavor.name) {
+                /**
+                 * Context est une classe abstraite dont l'implémentation est fournie par le système Android. Elle permet l'accès à des ressources et à des classes propres à l'application, ainsi qu'à des appels pour effectuer des opérations au niveau de l'application, comme les activités de lancement par exemple. Vous pouvez utiliser cette variable pour obtenir les chaînes de la liste des ID de ressources du modèle de vue afin d'afficher la liste des saveurs.
                  */
                 val context = LocalContext.current
                 SelectOptionScreen(
@@ -112,6 +116,8 @@ fun CupcakeApp(
                     // ++> L'écran de choix du parfum affiche la liste des parfums provenant des ressources
                     // ++> de chaîne de l'application. Transformez la liste d'ID de ressources en une liste
                     // ++> de chaînes en utilisant la fonction map() et en appelant context.resources.getString(id) pour chaque saveur.
+                    onNextButtonClicked = { navController.navigate(CupcakeScreen.Pickup.name) },
+                    onCancelButtonClicked = {},
                     options = DataSource.flavors.map { id -> context.resources.getString(id) },
                     onSelectionChanged = { viewModel.setFlavor(it) },
                     modifier = Modifier.fillMaxHeight()
@@ -120,6 +126,8 @@ fun CupcakeApp(
             composable(route = CupcakeScreen.Pickup.name) {
                 SelectOptionScreen(
                     subtotal = uiState.price,
+                    onNextButtonClicked = { navController.navigate(CupcakeScreen.Summary.name) },
+                    onCancelButtonClicked = {},
                     options = uiState.pickupOptions,
                     onSelectionChanged = { viewModel.setDate(it) },
                     modifier = Modifier.fillMaxHeight()
@@ -128,6 +136,10 @@ fun CupcakeApp(
             composable(route = CupcakeScreen.Summary.name) {
                 OrderSummaryScreen(
                     orderUiState = uiState,
+                    onCancelButtonClicked = {},
+                    onSendButtonClicked = { subject: String, summary: String ->
+
+                    },
                     modifier = Modifier.fillMaxHeight()
                 )
             }
