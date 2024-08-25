@@ -117,7 +117,7 @@ fun CupcakeApp(
                     // ++> de chaîne de l'application. Transformez la liste d'ID de ressources en une liste
                     // ++> de chaînes en utilisant la fonction map() et en appelant context.resources.getString(id) pour chaque saveur.
                     onNextButtonClicked = { navController.navigate(CupcakeScreen.Pickup.name) },
-                    onCancelButtonClicked = {},
+                    onCancelButtonClicked = {cancelOrderAndNavigateToStart(viewModel, navController)},
                     options = DataSource.flavors.map { id -> context.resources.getString(id) },
                     onSelectionChanged = { viewModel.setFlavor(it) },
                     modifier = Modifier.fillMaxHeight()
@@ -127,7 +127,7 @@ fun CupcakeApp(
                 SelectOptionScreen(
                     subtotal = uiState.price,
                     onNextButtonClicked = { navController.navigate(CupcakeScreen.Summary.name) },
-                    onCancelButtonClicked = {},
+                    onCancelButtonClicked = {cancelOrderAndNavigateToStart(viewModel, navController)},
                     options = uiState.pickupOptions,
                     onSelectionChanged = { viewModel.setDate(it) },
                     modifier = Modifier.fillMaxHeight()
@@ -136,7 +136,7 @@ fun CupcakeApp(
             composable(route = CupcakeScreen.Summary.name) {
                 OrderSummaryScreen(
                     orderUiState = uiState,
-                    onCancelButtonClicked = {},
+                    onCancelButtonClicked = {cancelOrderAndNavigateToStart(viewModel, navController)},
                     onSendButtonClicked = { subject: String, summary: String ->
 
                     },
@@ -145,4 +145,13 @@ fun CupcakeApp(
             }
         }
     }
+}
+
+private fun cancelOrderAndNavigateToStart(
+    viewModel: OrderViewModel,
+    navController: NavHostController
+) {
+    viewModel.resetOrder()
+    navController.popBackStack(CupcakeScreen.Start.name, inclusive = false)
+
 }
