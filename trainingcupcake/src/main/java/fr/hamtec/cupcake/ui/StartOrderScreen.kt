@@ -35,6 +35,7 @@ import fr.hamtec.trainingcupcake.R
 @Composable
 fun StartOrderScreen(
     quantityOptions: List<Pair<Int, Int>>,
+    onNextButtonClicked: (Int) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -69,7 +70,7 @@ fun StartOrderScreen(
             quantityOptions.forEach { item ->
                 SelectQuantityButton(
                     labelResourceId = item.first,
-                    onClick = {onNextButtonClicked(item.second)} 
+                    onClick = {onNextButtonClicked(item.second)}
                 )
             }
         }
@@ -100,6 +101,7 @@ fun StartOrderPreview() {
     AteliersJetpackComposeTheme {
         StartOrderScreen(
             quantityOptions = DataSource.quantityOptions,
+            onNextButtonClicked = {},
             modifier = Modifier
                 .fillMaxSize()
                 .padding(dimensionResource(R.dimen.padding_medium))
