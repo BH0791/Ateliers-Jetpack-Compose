@@ -1,6 +1,8 @@
 package fr.hamtec.composeui.miseEnPage
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
@@ -15,24 +17,127 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Check
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import fr.hamtec.composeui.R
+import fr.hamtec.composeui.ui.theme.AteliersJetpackComposeTheme
+//-C6-P259-P312-
+@Preview(showBackground = true, group = "Box")
+@Composable
+fun BoxWithParentModifier() {
+    Box {
+        Image(
+            painter = painterResource(id = R.drawable.img_2),
+            contentDescription = null,
+            contentScale = ContentScale.FillHeight,
+            modifier = Modifier
+                .matchParentSize()
+        )
+        Text(
+            text = stringResource(R.string.lorem_ipsum),
+            modifier = Modifier
+                .background(
+                    MaterialTheme.colorScheme.background
+                        .copy(alpha = 0.6f)
+                )
+        )
+    }
+}
+
+@Preview(showBackground = true, group = "Box")
+@Composable
+fun BoxWithMatchParentModifier() {
+    Box {
+        Box(
+            modifier = Modifier
+                .size(200.dp)
+                .background(MaterialTheme.colorScheme.primary)
+                .align(Alignment.Center)
+        )
+        Text(
+            text = "TopSart",
+            color = MaterialTheme.colorScheme.onPrimary,
+            modifier = Modifier.align(Alignment.TopStart)
+        )
+        Text(
+            text = "BottomEnd",
+            color = MaterialTheme.colorScheme.onPrimary,
+            modifier = Modifier.align(Alignment.BottomEnd)
+        )
+    }
+}
+
+@Composable
+fun ProfilePictureWithStatus(
+    profilePicture: Painter,
+    availability: Availability,
+    modifier: Modifier = Modifier
+) {
+    Box(
+        modifier = modifier,
+        contentAlignment = Alignment.BottomEnd
+    ) {
+        Image(
+            painter = profilePicture,
+            contentDescription = null,
+            modifier = Modifier
+                .size(60.dp)
+                .clip(CircleShape)
+        )
+        if (availability == Availability.AVAILABLE) {
+            Icon(
+                imageVector = Icons.Default.Check,
+                contentDescription = null,
+                tint = Color.Green,
+                modifier = Modifier
+                    .size(16.dp)
+                    .border(
+                        1.dp,
+                        Color.White,
+                        shape = CircleShape
+                    )
+                    .padding(1.dp)
+                    .clip(CircleShape)
+                    .background(MaterialTheme.colorScheme.primary)
+            )
+        }
+    }
+}
+
+@Preview(showBackground = true, group = "Profile")
+@Composable
+private fun ProfilePictureWithStatusPreview() {
+    AteliersJetpackComposeTheme {
+        ProfilePictureWithStatus(
+            profilePicture = painterResource(id = R.drawable.img),
+            availability = Availability.AVAILABLE,
+        )
+    }
+}
+
 @Preview(showBackground = true)
 @Composable
-fun HorizontalScrollSample(){
+fun HorizontalScrollSample() {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -48,7 +153,7 @@ fun HorizontalScrollSample(){
                     .clip(CircleShape)
                     .background(MaterialTheme.colorScheme.primary),
                 contentAlignment = Alignment.Center
-            ){
+            ) {
                 Text(
                     text = "$it",
                     color = MaterialTheme.colorScheme.onPrimary
@@ -57,9 +162,10 @@ fun HorizontalScrollSample(){
         }
     }
 }
+
 @Preview(showBackground = true)
 @Composable
-fun LayoutRow(): Unit {
+fun LayoutRow() {
     Row {
         // The child with no weight will have the specified size.
         Box(
@@ -118,24 +224,27 @@ private fun LayoutRow3() {
         Box(
             Modifier
                 .size(100.dp)
-                .background(Color.Red))
+                .background(Color.Red)
+        )
         Spacer(Modifier.width(20.dp))
         Box(
             Modifier
                 .size(100.dp)
-                .background(Color.Magenta))
+                .background(Color.Magenta)
+        )
         Spacer(Modifier.weight(1f))
         Box(
             Modifier
                 .size(100.dp)
-                .background(Color.Black))
+                .background(Color.Black)
+        )
     }
 }
 
 @Preview(showBackground = true)
 @Composable
 fun LayoutText() {
-    var offset by remember { mutableStateOf(0) }
+    var offset by remember { mutableIntStateOf(0) }
     Text(
         "Layout offset modifier sample",
         Modifier
