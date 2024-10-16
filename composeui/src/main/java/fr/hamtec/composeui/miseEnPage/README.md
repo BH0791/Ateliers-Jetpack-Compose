@@ -31,3 +31,15 @@ inline fun Box(
     content: @Composable BoxScope.() -> Unit
 ): Unit
 ```
+### BoxWithConstraints
+Un composable qui définit son propre contenu en fonction de l'espace disponible.
+```
+@Composable
+@UiComposable
+fun BoxWithConstraints(
+    modifier: Modifier = Modifier,
+    contentAlignment: Alignment = Alignment.TopStart,
+    propagateMinConstraints: Boolean = false,
+    content: @Composable @UiComposable BoxWithConstraintsScope.() -> Unit
+): Unit
+```
