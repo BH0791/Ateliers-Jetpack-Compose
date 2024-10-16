@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import fr.hamtec.composeui.demoOutlinedTextFiel.FirstOutlineTextField
+import fr.hamtec.composeui.lesListes.FirstLazyColumn
 import fr.hamtec.composeui.ui.theme.AteliersJetpackComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -13,7 +13,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             AteliersJetpackComposeTheme() {
-                FirstOutlineTextField()
+                FirstLazyColumn()
             }
         }
     }
