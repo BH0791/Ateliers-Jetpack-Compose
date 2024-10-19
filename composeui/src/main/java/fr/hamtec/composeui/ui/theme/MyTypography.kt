@@ -10,7 +10,6 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.googlefonts.Font
 import androidx.compose.ui.text.googlefonts.GoogleFont
-import androidx.compose.ui.text.style.BaselineShift
 import androidx.compose.ui.unit.sp
 import fr.hamtec.composeui.R
 
@@ -59,10 +58,10 @@ val MyTypography = Typography(
         fontSize = 12.sp,
         lineHeight = 12.sp,
         letterSpacing = 0.5.sp,
-        baselineShift = BaselineShift.Subscript
+        //baselineShift = BaselineShift.Subscript
     ),
     titleLarge = TextStyle(
-        fontFamily = fira_code,
+        fontFamily = Lobster_Two,
         fontWeight = FontWeight.Light,
         fontSize = 22.sp,
         lineHeight = 28.sp,

@@ -72,7 +72,10 @@ fun CoversationItem(
 //** P-139
 @Composable
 fun UserBadge(username: String) {
-    Row {
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier.padding(2.dp)
+    ) {
         Icon(
             imageVector = Icons.Rounded.People,
             contentDescription = "User Badge",
@@ -102,22 +105,22 @@ fun MessageContent(
     Column(
         modifier = Modifier
             .border(
-                width = 2.dp,
+                width = 1.dp,
                 color = MaterialTheme.colorScheme.secondary,
                 shape = MaterialTheme.shapes.small
             )
-            .padding(8.dp)
+            .padding(4.dp)
     ) {
         Text(
             text = text,
             color = MaterialTheme.colorScheme.primary,
-            style = MaterialTheme.typography.titleMedium
+            style = MaterialTheme.typography.bodyLarge
         )
         Text(
             text = time,
             modifier = Modifier.align(Alignment.End),
             color = MaterialTheme.colorScheme.tertiary,
-            style = MaterialTheme.typography.titleSmall
+            style = MaterialTheme.typography.labelSmall
         )
     }
 }
