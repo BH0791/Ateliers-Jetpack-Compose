@@ -54,7 +54,7 @@ val MyTypography = Typography(
         letterSpacing = 0.5.sp
     ),
     bodyLarge = TextStyle(
-        fontFamily = Lobster_Two,
+        fontFamily = firacode,
         fontWeight = FontWeight.Normal,
         fontSize = 12.sp,
         lineHeight = 12.sp,

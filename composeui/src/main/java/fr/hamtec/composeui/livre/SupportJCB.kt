@@ -35,7 +35,7 @@ fun SlotAllowCustomComponent() {
             )
         },
 
-    ) { innerPadding ->
+        ) { innerPadding ->
 
         Column(
             modifier = Modifier
@@ -47,6 +47,7 @@ fun SlotAllowCustomComponent() {
         }
     }
 }
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SmallTopAppBarExample() {
@@ -66,6 +67,7 @@ fun SmallTopAppBarExample() {
         ScrollContent(innerPadding)
     }
 }
+
 @Composable
 fun ScrollContent(innerPadding: PaddingValues) {
     val range = 1..100
@@ -81,6 +83,7 @@ fun ScrollContent(innerPadding: PaddingValues) {
         }
     }
 }
+
 @Preview
 @Composable
 private fun SlotAllowCustomComponentPreview() {
@@ -88,6 +91,7 @@ private fun SlotAllowCustomComponentPreview() {
         SlotAllowCustomComponent()
     }
 }
+
 @Preview
 @Composable
 private fun SmallTopAppBarExamplePreview() {
