@@ -14,11 +14,13 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Attachment
 import androidx.compose.material.icons.filled.Mic
+import androidx.compose.material.icons.rounded.Check
 import androidx.compose.material.icons.rounded.People
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -69,6 +71,7 @@ fun CoversationItem(
     }
 
 }
+
 //** P-139
 @Composable
 fun UserBadge(username: String) {
@@ -102,26 +105,36 @@ fun MessageContent(
     time: String,
     modifier: Modifier = Modifier
 ) {
-    Column(
-        modifier = Modifier
-            .border(
-                width = 1.dp,
-                color = MaterialTheme.colorScheme.secondary,
-                shape = MaterialTheme.shapes.small
-            )
-            .padding(4.dp)
+    Row(
     ) {
-        Text(
-            text = text,
-            color = MaterialTheme.colorScheme.primary,
-            style = MaterialTheme.typography.bodyLarge
-        )
-        Text(
-            text = time,
-            modifier = Modifier.align(Alignment.End),
-            color = MaterialTheme.colorScheme.tertiary,
-            style = MaterialTheme.typography.labelSmall
-        )
+        Column(
+            modifier = Modifier
+                .border(
+                    width = 1.dp,
+                    color = MaterialTheme.colorScheme.secondary,
+                    shape = MaterialTheme.shapes.small
+                )
+                .padding(4.dp)
+        ) {
+            Text(
+                text = text,
+                color = MaterialTheme.colorScheme.primary,
+                style = MaterialTheme.typography.bodyLarge
+            )
+            Text(
+                text = time,
+                modifier = Modifier.align(Alignment.End),
+                color = MaterialTheme.colorScheme.tertiary,
+                style = MaterialTheme.typography.labelSmall
+            )
+        }
+        Surface(
+            modifier = Modifier
+                .padding(start = 4.dp)
+                .align(Alignment.Bottom)
+        ) {
+            MessageReadIcons()
+        }
     }
 }
 
@@ -167,14 +180,14 @@ fun NewMessageInput(
         },
         trailingIcon = {
             Row {
-                IconButton(onClick = {/*TODO*/}){
+                IconButton(onClick = {/*TODO*/ }) {
                     Icon(
                         Icons.Default.Attachment,
                         contentDescription =
                         stringResource(R.string.cd_attach)
                     )
                 }
-                IconButton(onClick = {/*TODO*/}){
+                IconButton(onClick = {/*TODO*/ }) {
                     Icon(
                         Icons.Default.Mic,
                         contentDescription =
@@ -193,6 +206,54 @@ fun NewMessageInput(
                 text = ""
             }
         )
+    )
+}
+
+@Composable
+fun ConversationItem(
+    name: String,
+    messsage: String,
+    date: Instant,
+    modifier: Modifier = Modifier
+) {
+    Row(
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = modifier
+            .clickable(
+                onClickLabel = stringResource(R.string.cd_open_conversation)
+            ) {
+                /*TODO open conversation*/
+            }
+            .fillMaxWidth()
+            .padding(horizontal = 8.dp, vertical = 4.dp)
+    ) {
+//        ConversationIcon()
+//        LastMessage(
+//            name = name,
+//            message = messsage,
+//            date = date,
+//            modifier = Modifier.weight(1f)
+//        )
+    }
+}
+
+@Composable
+fun MessageReadIcons(
+    modifier: Modifier = Modifier
+) {
+    Icon(
+        imageVector = Icons.Rounded.Check,
+        contentDescription = stringResource(id = R.string.cd_message_read),
+        tint = Color(0xFF00C8FF),
+        modifier = modifier
+            .border(
+                width = 1.dp,
+                color = MaterialTheme.colorScheme.primary,
+                shape = CircleShape
+            )
+            .padding(2.dp)
+            .size(10.dp)
     )
 }
 
@@ -218,9 +279,10 @@ fun CoversationItemPreview() {
         CoversationItem("Louise", "Bonjour à tous", Instant.now())
     }
 }
+
 @Preview(showBackground = true)
 @Composable
-fun NewMessageInputPreview(){
+fun NewMessageInputPreview() {
     AteliersJetpackComposeTheme {
         NewMessageInput({})
     }
