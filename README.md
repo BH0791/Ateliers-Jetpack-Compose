@@ -7,17 +7,17 @@ Je vais faire un maximum d'atelier Jetpack Compose dans les moindres détails.
 - Ajouter une liste déroulante
 - Thématisation dans Compose avec Material 3
 - Animer des éléments dans Jetpack Compose
-- Persistance des données avec Room (Attente de complementation d'informations)
+- Persistance des données avec Room (Attente de complementation d'informations) (En attente...)
 - Naviguer entre les écrans avec Compose (En cours...)
-- ...
+- Dice Roller 
+- (En cours...)
 
 `code`
 
-
 | Jdk      | kotlin   | maven   | Gradle   | androidx.compose | androidx.compose(stable) |
 |----------|----------|---------|----------|------------------|--------------------------|
-| `23.0.1` | `2.0.21` | `3.9.9` | `8.10.1` | `1.8.0-alpha01`  | `1.7.0`                  |
+| `23.0.1` | `2.0.21` | `3.9.9` | `8.10.2` | `1.8.0-alpha01`  | `1.7.0`                  |
 
- *Au 16 octobre 2024*
+ *Au 28 octobre 2024*
 
   
