@@ -21,26 +21,24 @@ fun AfficheTP() {
     Scaffold(
         topBar = {
             TopAppBar(
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer,
-                    titleContentColor = MaterialTheme.colorScheme.primary,
-                ),
+                colors =
+                    TopAppBarDefaults.topAppBarColors(
+                        containerColor = MaterialTheme.colorScheme.primaryContainer,
+                        titleContentColor = MaterialTheme.colorScheme.primary,
+                    ),
                 title = {
                     Text(text = stringResource(R.string.app_name))
-                }
+                },
             )
         },
     ) {
-
         Surface(modifier = Modifier.padding(it)) {
-
             Column(
-                modifier = Modifier.padding(16.dp)
+                modifier = Modifier.padding(16.dp),
             ) {
                 UserBadge(username = "Louis Amstrong")
                 MessageContent("You like potato and I like potahto", "6:31 pm")
             }
         }
-
     }
 }
