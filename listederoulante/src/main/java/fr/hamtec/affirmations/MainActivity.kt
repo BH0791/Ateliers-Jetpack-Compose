@@ -1,6 +1,7 @@
 package fr.hamtec.affirmations
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -41,6 +42,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+            Log.d("Hamid",Thread.currentThread().name )
             AteliersJetpackComposeTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
@@ -113,7 +115,7 @@ fun AffirmationList(
     }
 }
 
-@Preview
+@Preview(showBackground = true, name = "Affirmation", group = "Card")
 @Composable
 private fun AffirmationsAppPreview() {
     AteliersJetpackComposeTheme {
