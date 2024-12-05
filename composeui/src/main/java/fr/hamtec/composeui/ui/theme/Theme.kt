@@ -48,7 +48,7 @@ private val LightColorScheme = lightColorScheme(
 fun AteliersJetpackComposeTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
@@ -64,7 +64,7 @@ fun AteliersJetpackComposeTheme(
     MaterialTheme(
         colorScheme = colorScheme,
         typography = MyTypography,
-        content = content,
-        shapes = Shapes
+        shapes = Shapes,
+        content = content
     )
 }
